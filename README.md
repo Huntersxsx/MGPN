@@ -2,21 +2,22 @@
 
 ## Introduction
 
-This is an implementation repository for our work in SIGIR.
-**You Need to Read Again: Multi-granularity Perception Network for Moment Retrieval in Videos**. [paper](https://doi.org/10.1145/3477495.3532083)
+This is an implementation repository for our work in SIGIR 2022.
+**You Need to Read Again: Multi-granularity Perception Network for Moment Retrieval in Videos**. [paper](https://arxiv.org/pdf/2205.12886.pdf)
 
 ![](https://github.com/Huntersxsx/MGPN/blob/master/img/framework.png)
 
 <!-- ## Note:
 Our pre-trained models are available at [SJTU jbox](https://jbox.sjtu.edu.cn/l/215Z2T) or [baiduyun, passcode:xmc0](https://pan.baidu.com/s/1CRojAlDURJ57tUprdNbfFg) or [Google Drive](https://drive.google.com/drive/folders/1AFdgfxFCA9ji36HaveL2dQ7wr7OjlHjb?usp=sharing). -->
 
-<!-- ## Installation
+
+## Installation
 
 Clone the repository and move to folder:
 ```bash
-git clone https://github.com/Huntersxsx/RaNet.git
+git clone https://github.com/Huntersxsx/MGPN.git
 
-cd RaNet
+cd MGPN
 ```
 
 To use this source code, you need Python3.7+ and a few python3 packages:
@@ -28,7 +29,7 @@ To use this source code, you need Python3.7+ and a few python3 packages:
 - tqdm
 
 ## Data
-We use the data offered by [2D-TAN](https://rochester.app.box.com/s/8znalh6y5e82oml2lr7to8s6ntab6mav).
+We use the data offered by [2D-TAN](https://github.com/microsoft/2D-TAN/tree/master/data), and the extracted features can be found at [Box](https://rochester.app.box.com/s/8znalh6y5e82oml2lr7to8s6ntab6mav/folder/137471266949).
 
 </br>
 
@@ -62,7 +63,7 @@ The folder structure should be as follows:
 ```
 
 ## Train and Test
-Please download the visual features from [box drive](https://rochester.app.box.com/s/8znalh6y5e82oml2lr7to8s6ntab6mav) and save it to the `data/` folder.
+Please download the visual features from [Box](https://rochester.app.box.com/s/8znalh6y5e82oml2lr7to8s6ntab6mav) and save it to the `data/` folder.
 
 #### Training
 Use the following commands for training:
@@ -79,7 +80,7 @@ Use the following commands for training:
     sh run_charades.sh
 ```
 
-#### Testing
+<!-- #### Testing
 Our trained model are provided in [SJTU jbox](https://jbox.sjtu.edu.cn/l/215Z2T) or [baiduyun, passcode:xmc0](https://pan.baidu.com/s/1CRojAlDURJ57tUprdNbfFg) or [Google Drive](https://drive.google.com/drive/folders/1AFdgfxFCA9ji36HaveL2dQ7wr7OjlHjb?usp=sharing). Please download them to the `checkpoints/best/` folder.
 Use the following commands for testing:
 - For TACoS dataset, run: 
@@ -93,39 +94,46 @@ Use the following commands for testing:
 - For Charades-STA dataset, run:
 ```bash
     sh test_charades.sh
-```
+``` -->
 
 ## Main results:
 
 | **TACoS** | Rank1@0.3 | Rank1@0.5 | Rank5@0.3 | Rank5@0.5 |
 | ---- |:-------------:| :-----:|:-----:|:-----:|
-| **RaNet** |  43.34 | 33.54 |  67.33 | 55.09 |
+| **MGPN<sub>256** |  48.81 | 36.74 |  71.46 | 59.24 |
 </br>
 
 | **ActivityNet** | Rank1@0.5 | Rank1@0.7 | Rank5@0.6 | Rank5@0.7 |
 | ---- |:-------------:| :-----:|:-----:|:-----:|
-| **RaNet** | 45.59 | 28.67 | 75.93 | 62.97 |
+| **MGPN<sub>256** | 47.92 | 30.47 | 78.15 | 63.56 |
 </br>
 
-| **Charades (VGG)**  | Rank1@0.5 | Rank1@0.7 | Rank5@0.5 | Rank5@0.7 |
+<!-- | **Charades (VGG)**  | Rank1@0.5 | Rank1@0.7 | Rank5@0.5 | Rank5@0.7 |
 | ---- |:-------------:| :-----:|:-----:|:-----:|
 | **RaNet** | 43.87 | 26.83 | 86.67 | 54.22 |
-</br>
+</br> -->
 
 | **Charades (I3D)**  | Rank1@0.5 | Rank1@0.7 | Rank5@0.5 | Rank5@0.7 |
 | ---- |:-------------:| :-----:|:-----:|:-----:|
-| **RaNet** | 60.40 | 39.65 | 89.57 | 64.54 |
+| **MGPN<sub>256** | 60.82 | 41.16 | 89.77 | 64.73 |
 
 ## Acknowledgement
 
-We greatly appreciate the [2D-Tan repository](https://github.com/microsoft/2D-TAN), [gtad repository](https://github.com/frostinassiky/gtad) and [CCNet repository](https://github.com/speedinghzl/CCNet). Please remember to cite the papers:
+We greatly appreciate the [2D-Tan repository](https://github.com/microsoft/2D-TAN). Please remember to cite the papers:
 
 ```
+@article{sun2022you,
+  title={You Need to Read Again: Multi-granularity Perception Network for Moment Retrieval in Videos},
+  author={Sun, Xin and Wang, Xuan and Gao, Jialin and Liu, Qiong and Zhou, Xi},
+  journal={arXiv preprint arXiv:2205.12886},
+  year={2022}
+}
 
-@article{gao2021relation,
+@inproceedings{gao2021relation,
   title={Relation-aware Video Reading Comprehension for Temporal Language Grounding},
   author={Gao, Jialin and Sun, Xin and Xu, Mengmeng and Zhou, Xi and Ghanem, Bernard},
-  journal={arXiv preprint arXiv:2110.05717},
+  booktitle={Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing},
+  pages={3978--3988},
   year={2021}
 }
 
@@ -136,24 +144,5 @@ booktitle = {AAAI},
 year = {2020}
 } 
 
-@InProceedings{Xu_2020_CVPR,
-author = {Xu, Mengmeng and Zhao, Chen and Rojas, David S. and Thabet, Ali and Ghanem, Bernard},
-title = {G-TAD: Sub-Graph Localization for Temporal Action Detection},
-booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-url={https://openaccess.thecvf.com/content_CVPR_2020/papers/Xu_G-TAD_Sub-Graph_Localization_for_Temporal_Action_Detection_CVPR_2020_paper.pdf},
-month = {June},
-year = {2020}
-}
 
-@INPROCEEDINGS{9009011,
-author={Huang, Zilong and Wang, Xinggang and Huang, Lichao and Huang, Chang and Wei, Yunchao and Liu, Wenyu},
-booktitle={2019 IEEE/CVF International Conference on Computer Vision (ICCV)}, 
-title={CCNet: Criss-Cross Attention for Semantic Segmentation}, 
-year={2019},
-volume={},
-number={},
-pages={603-612},
-doi={10.1109/ICCV.2019.00069}
-}
-
-``` -->
+```
